@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vaibhav Dohare • Portfolio</title>
+  <meta name="description" content="Portfolio of Vaibhav Dohare — AI & Data Science student, projects, skills, and contact." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- ✅ Always-running backgrounds -->
+  <canvas id="auroraCanvas" aria-hidden="true"></canvas>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
+  <canvas id="pointCloudCanvas" aria-hidden="true"></canvas>
+
+  <!-- ✅ Parallax 3D blobs -->
+  <div class="parallax-layer" aria-hidden="true">
+    <div class="blob blob-a"></div>
+    <div class="blob blob-b"></div>
+    <div class="blob blob-c"></div>
+    <div class="blob blob-d"></div>
+    <div class="grain"></div>
+  </div>
+
+  <div class="ai-lab-overlay" aria-hidden="true">
+    <div class="ai-grid"></div>
+    <div class="ai-hex-circuit"></div>
+    <div class="ai-scanlines"></div>
+    <div class="ai-sweep"></div>
+    <div class="ai-hud">
+      <span class="hud tl"></span>
+      <span class="hud tr"></span>
+      <span class="hud bl"></span>
+      <span class="hud br"></span>
+    </div>
+  </div>
+
+  <!-- Scroll progress -->
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+
+  <!-- Header -->
+  <header class="header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top">
+        <span class="brand-dot"></span>
+        <span class="brand-text">Vaibhav</span>
+      </a>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn btn-ghost" id="themeToggle" type="button" aria-label="Toggle theme">
+          <i class="fa-solid fa-circle-half-stroke"></i>
+          <span class="hide-sm">Theme</span>
+        </button>
+
+        <button class="btn btn-ghost menu-btn" id="menuBtn" type="button" aria-label="Open menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <a class="btn btn-primary hide-sm" href="#contact">
+          <i class="fa-solid fa-bolt"></i>
+          Collaborate
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile drawer -->
+    <div class="drawer" id="drawer" aria-hidden="true">
+      <div class="drawer-panel">
+        <div class="drawer-top">
+          <span class="drawer-title">Menu</span>
+          <button class="btn btn-ghost" id="closeDrawer" type="button" aria-label="Close menu">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+
+        <div class="drawer-links">
+          <a href="#about"><i class="fa-regular fa-user"></i> About</a>
+          <a href="#projects"><i class="fa-solid fa-layer-group"></i> Projects</a>
+          <a href="#skills"><i class="fa-solid fa-wand-magic-sparkles"></i> Skills</a>
+          <a href="#education"><i class="fa-solid fa-graduation-cap"></i> Education</a>
+          <a href="#contact"><i class="fa-regular fa-envelope"></i> Contact</a>
+        </div>
+
+        <div class="drawer-cta">
+          <a class="btn btn-primary" href="#contact"><i class="fa-solid fa-paper-plane"></i> Message me</a>
+        </div>
+      </div>
+      <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- Hero -->
+    <section class="hero section section-snap">
+      <div class="container hero-grid">
+
+        <div class="hero-left reveal">
+          <p class="pill">
+            <span class="pill-dot"></span>
+            AI & Data Science • BTech
+            <span class="pill-glow" aria-hidden="true"></span>
+          </p>
+
+          <h1 class="hero-title">
+            Building <span class="grad">AI</span> projects with
+            <span class="grad2">clean UI</span> & real impact.
+          </h1>
+
+          <p class="hero-subtitle">
+            I’m <strong>Vaibhav Dohare</strong> — I build practical projects using Python/Java,
+            and I love making interfaces feel modern, smooth, and alive.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#projects">
+              <i class="fa-solid fa-rocket"></i> View Projects
+            </a>
+            <a class="btn btn-ghost" href="#contact">
+              <i class="fa-regular fa-message"></i> Contact
+            </a>
+            <a class="btn btn-ghost" href="https://drive.google.com/file/d/1ORkBV5w_pCuEm_KfhBVxHj5I-eNzAtfs/view?usp=drive_link" download>
+              <i class="fa-regular fa-file-lines"></i> Resume
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat card hover-tilt">
+                <span class="scan-beam" aria-hidden="true"></span>
+              <div class="stat-num"><i class="fa-solid fa-code"></i> 10+</div>
+              <div class="stat-label">Projects & builds</div>
+            </div>
+            <div class="stat card hover-tilt">
+                <span class="scan-beam" aria-hidden="true"></span>
+              <div class="stat-num"><i class="fa-brands fa-python"></i> Python</div>
+              <div class="stat-label">Primary language</div>
+            </div>
+            <div class="stat card hover-tilt">
+                <span class="scan-beam" aria-hidden="true"></span>
+              <div class="stat-num"><i class="fa-solid fa-brain"></i> AI/ML</div>
+              <div class="stat-label">Focused learning</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right reveal">
+          <div class="profile card glass hover-tilt">
+            <span class="scan-beam" aria-hidden="true"></span>
+            <div class="profile-top">
+              <div class="avatar" aria-hidden="true">VD</div>
+              <div>
+                <div class="profile-name">Vaibhav Dohare</div>
+                <div class="profile-role">AI & DS Student • Developer</div>
+              </div>
+            </div>
+
+            <div class="profile-badges">
+              <span class="badge"><i class="fa-brands fa-python"></i> Python</span>
+              <span class="badge"><i class="fa-brands fa-java"></i> Java</span>
+              <span class="badge"><i class="fa-brands fa-js"></i> JavaScript</span>
+              <span class="badge"><i class="fa-solid fa-wand-magic-sparkles"></i> UI</span>
+            </div>
+
+            <div class="profile-mini">
+              <div class="mini-row">
+                <span class="mini-k"><i class="fa-solid fa-location-dot"></i> Location</span>
+                <span class="mini-v">India</span>
+              </div>
+              <div class="mini-row">
+                <span class="mini-k"><i class="fa-solid fa-briefcase"></i> Open to</span>
+                <span class="mini-v">Internships • Projects</span>
+              </div>
+              <div class="mini-row">
+                <span class="mini-k"><i class="fa-regular fa-envelope"></i> Email</span>
+                <span class="mini-v">vaibhavdohare2050@gmail.com</span>
+              </div>
+            </div>
+
+            <div class="profile-actions">
+              <a class="btn btn-primary" href="#contact"><i class="fa-solid fa-bolt"></i> Let’s build</a>
+              <a class="btn btn-ghost" href="#about"><i class="fa-regular fa-circle-play"></i> Explore</a>
+            </div>
+          </div>
+
+          <div class="social-grid">
+            <a class="social card hover-tilt" href="https://github.com/Vaibhav2005-r" aria-label="GitHub">
+              <div class="social-ic"><i class="fa-brands fa-github"></i></div>
+              <div><div class="social-title">GitHub</div><div class="social-sub">Code & repos</div></div>
+              <i class="fa-solid fa-arrow-up-right-from-square social-go"></i>
+            </a>
+            <a class="social card hover-tilt" href="https://www.linkedin.com/in/vaibhav-dohare-ai1032241307/" aria-label="LinkedIn">
+              <div class="social-ic"><i class="fa-brands fa-linkedin"></i></div>
+              <div><div class="social-title">LinkedIn</div><div class="social-sub">Profile & updates</div></div>
+              <i class="fa-solid fa-arrow-up-right-from-square social-go"></i>
+            </a>
+            <a class="social card hover-tilt" href="https://leetcode.com/u/Chiseledefender/" aria-label="LeetCode">
+              <div class="social-ic"><i class="fa-solid fa-code"></i></div>
+              <div><div class="social-title">LeetCode</div><div class="social-sub">DSA practice</div></div>
+              <i class="fa-solid fa-arrow-up-right-from-square social-go"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section section-snap" data-accent="orange">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>About</h2>
+          <p>What I do, how I think, and what I’m building next.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card pad reveal hover-tilt">
+            <span class="scan-beam" aria-hidden="true"></span>
+            <h3><i class="fa-regular fa-user"></i> Who I am</h3>
+            <p>
+              I’m a BTech student in <strong>Artificial Intelligence & Data Science</strong>.
+              I love building projects that feel polished and useful — not just “made for marks”.
+            </p>
+            <p>
+              My current goal is to grow into a strong developer with solid DSA + real-world projects.
+            </p>
+          </div>
+
+          <div class="card pad reveal hover-tilt">
+            <span class="scan-beam" aria-hidden="true"></span>
+            <h3><i class="fa-solid fa-wand-magic-sparkles"></i> What I do</h3>
+            <ul class="list">
+              <li>Modern, responsive UI with smooth motion & clean layout.</li>
+              <li>Python + Java development and DSA problem-solving.</li>
+              <li>AI/ML fundamentals: models, metrics, and practical use cases.</li>
+              <li>Projects with backend integration when needed.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section section-snap" data-accent="purple">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Projects</h2>
+          <p>Selected work — clean UI, useful logic, and real features.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="card project reveal hover-tilt">
+            <span class="scan-beam" aria-hidden="true"></span>
+            <div class="project-top">
+              <div class="project-tag"><i class="fa-solid fa-sparkles"></i> Web + AI</div>
+              <div class="project-date">2026</div>
+            </div>
+            <h3>Mind Wellness Website</h3>
+            <p>Wellness tests, personalized insights, PDF export, mood charts, backend integration.</p>
+            <div class="chips">
+              <span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">JS</span><span class="chip">Flask</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="#"><i class="fa-solid fa-globe"></i> Live</a>
+              <a class="btn btn-ghost" href="#"><i class="fa-brands fa-github"></i> Code</a>
+            </div>
+          </article>
+
+          <article class="card project reveal hover-tilt">
+            <span class="scan-beam" aria-hidden="true"></span>
+            <div class="project-top">
+              <div class="project-tag"><i class="fa-brands fa-java"></i> Java</div>
+              <div class="project-date">2026</div>
+            </div>
+            <h3>Chat Application</h3>
+            <p>Socket-based chat with roadmap: auth, encryption, private messaging, file sharing.</p>
+            <div class="chips">
+              <span class="chip">Java</span><span class="chip">Sockets</span><span class="chip">OOP</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="#"><i class="fa-regular fa-circle-play"></i> Demo</a>
+              <a class="btn btn-ghost" href="#"><i class="fa-brands fa-github"></i> Code</a>
+            </div>
+          </article>
+
+          <article class="card project reveal hover-tilt">
+            <span class="scan-beam" aria-hidden="true"></span>
+            <div class="project-top">
+              <div class="project-tag"><i class="fa-solid fa-diagram-project"></i> DSA</div>
+              <div class="project-date">2025</div>
+            </div>
+            <h3>Algorithms Notes + Dry Runs</h3>
+            <p>Clean explanations for Dijkstra, Prim, Kruskal, recursion trees, complexity.</p>
+            <div class="chips">
+              <span class="chip">Java</span><span class="chip">Graphs</span><span class="chip">Notes</span>
+            </div>
+            <div class="project-actions">
+              <a class="btn btn-primary" href="#"><i class="fa-regular fa-file-lines"></i> Read</a>
+              <a class="btn btn-ghost" href="#"><i class="fa-brands fa-github"></i> Repo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section section-snap" data-accent="cyan">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Skills</h2>
+          <p>Tools I use frequently (and keep improving).</p>
+        </div>
+
+        <div class="skills-grid">
+          <div class="card pad reveal hover-tilt">
+            <span class="scan-beam" aria-hidden="true"></span>
+            <h3><i class="fa-solid fa-code"></i> Programming</h3>
+            <div class="skill"><span>Python</span><div class="bar"><i style="width: 78%"></i></div></div>
+            <div class="skill"><span>Java</span><div class="bar"><i style="width: 70%"></i></div></div>
+            <div class="skill"><span>JavaScript</span><div class="bar"><i style="width: 62%"></i></div></div>
+          </div>
+
+          <div class="card pad reveal hover-tilt">
+            <span class="scan-beam" aria-hidden="true"></span>
+            <h3><i class="fa-solid fa-window-maximize"></i> Web</h3>
+            <div class="skill"><span>HTML/CSS</span><div class="bar"><i style="width: 80%"></i></div></div>
+            <div class="skill"><span>Responsive UI</span><div class="bar"><i style="width: 72%"></i></div></div>
+            <div class="skill"><span>Flask</span><div class="bar"><i style="width: 55%"></i></div></div>
+          </div>
+
+          <div class="card pad reveal hover-tilt">
+            <span class="scan-beam" aria-hidden="true"></span>
+            <h3><i class="fa-solid fa-brain"></i> AI / Data</h3>
+            <div class="skill"><span>ML Basics</span><div class="bar"><i style="width: 58%"></i></div></div>
+            <div class="skill"><span>Pandas / Numpy</span><div class="bar"><i style="width: 65%"></i></div></div>
+            <div class="skill"><span>Model eval</span><div class="bar"><i style="width: 50%"></i></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section section-snap" data-accent="green">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Education</h2>
+          <p>Current program + what I’m learning.</p>
+        </div>
+
+        <div class="card pad timeline reveal hover-tilt">   
+            <span class="scan-beam" aria-hidden="true"></span>
+          <div class="t-item">
+            <div class="t-dot"></div>
+            <div class="t-content">
+              <div class="t-title">BTech — Artificial Intelligence & Data Science</div>
+              <div class="t-meta">Thakur College of Engineering and Technology • 2nd year</div>
+              <div class="t-desc">Coursework: Programming, DSA, Linear Algebra, Probability & Statistics, Web fundamentals.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section-snap" data-accent="pink">
+      <div class="container">
+        <div class="section-head reveal">
+          <h2>Contact</h2>
+          <p>Drop a message — fast reply.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card pad reveal hover-tilt">
+            <span class="scan-beam" aria-hidden="true"></span>
+            <h3><i class="fa-regular fa-envelope"></i> Let’s connect</h3>
+            <p class="muted">
+              Internship, hackathon, or a project idea — I’m in. Send a message here.
+            </p>
+
+            <div class="contact-links">
+              <a class="btn btn-ghost" href="https://github.com/Vaibhav2005-r" aria-label="GitHub"><i class="fa-brands fa-github"></i> GitHub</a>
+              <a class="btn btn-ghost" href="https://www.linkedin.com/in/vaibhav-dohare-ai1032241307/" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+              <a class="btn btn-ghost" href="mailto:vaibhavdohare2050@gmail.com" aria-label="Email"><i class="fa-regular fa-paper-plane"></i> Email</a>
+            </div>
+
+          </div>
+
+          <form class="card pad form reveal hover-tilt"
+      id="contactForm"
+      action="https://formspree.io/f/abcdwxyz"
+      method="POST">
+  <span class="scan-beam" aria-hidden="true"></span>
+
+  <div class="field">
+    <label for="name">Name</label>
+    <input id="name" name="name" placeholder="Your name" required />
+  </div>
+
+  <div class="field">
+    <label for="email">Email</label>
+    <input id="email" name="email" placeholder="you@example.com" type="email" required />
+  </div>
+
+  <div class="field">
+    <label for="message">Message</label>
+    <textarea id="message" name="message" placeholder="Tell me about your idea..." rows="5" required></textarea>
+  </div>
+
+  <!-- optional: helps Formspree identify subject -->
+  <input type="hidden" name="_subject" value="New message from portfolio site" />
+
+  <button class="btn btn-primary" type="submit">
+    <i class="fa-solid fa-paper-plane"></i> Send Message
+  </button>
+
+  <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+
+  <!-- fallback -->
+  <p class="muted" style="margin-top:10px">
+    Or email directly:
+    <a href="mailto:vaibhavdohare2050@gmail.com">vaibhavdohare2050@gmail.com</a>
+  </p>
+</form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer-inner">
+        <p>© <span id="year"></span> Vaibhav Dohare. Built with HTML/CSS/JS.</p>
+        <a class="btn btn-ghost" href="#top"><i class="fa-solid fa-arrow-up"></i> Top</a>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
