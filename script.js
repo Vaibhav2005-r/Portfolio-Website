@@ -30,28 +30,34 @@ document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeDrawe
 $("#year").textContent = new Date().getFullYear();
 
 /* ===================== CONTACT FORM (DEMO) ===================== */
-$("#contactForm")?.addEventListener("submit", async (e) => {
+$("#contactForm")?.addEventListener("submit", (e) => {
   e.preventDefault();
-  const form = e.target;
+
+  const name = $("#name")?.value.trim() || "";
+  const email = $("#email")?.value.trim() || "";
+  const message = $("#message")?.value.trim() || "";
   const status = $("#formStatus");
-  status.textContent = "Sending…";
 
-  try {
-    const res = await fetch(form.action, {
-      method: "POST",
-      body: new FormData(form),
-      headers: { "Accept": "application/json" }
-    });
-
-    if (res.ok) {
-      status.textContent = "✅ Sent! I’ll get back to you soon.";
-      form.reset();
-    } else {
-      status.textContent = "❌ Couldn’t send. Try again or email me directly.";
-    }
-  } catch (err) {
-    status.textContent = "❌ Network error. Try again or email me directly.";
+  if (!name || !email || !message) {
+    if (status) status.textContent = "❌ Please fill all fields.";
+    return;
   }
+
+  const to = "vaibhavdohare2050@gmail.com";
+  const subject = encodeURIComponent(`Portfolio Connect — ${name}`);
+  const body = encodeURIComponent(
+    `Hi Vaibhav,\n\n` +
+    `I visited your portfolio and want to connect.\n\n` +
+    `Name: ${name}\n` +
+    `Email: ${email}\n\n` +
+    `Message:\n${message}\n\n` +
+    `— Sent from your portfolio website`
+  );
+
+  // Opens user's mail app with everything filled
+  window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+
+  if (status) status.textContent = "✅ Opening your email app…";
 });
 
 /* ===================== REVEAL ON SCROLL ===================== */
